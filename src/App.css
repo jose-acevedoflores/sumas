@@ -1,38 +1,111 @@
-.App {
-  text-align: center;
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+:root {
+  --title-delay: 1s;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#vid-overlay{
+  position: absolute;
+  top: 0;
+  z-index: -9;
+  min-width: 100%;
+  min-height: 100%;
+  background-color: black;
+  opacity: 0.3;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#myVideo {
+  position: absolute;
+  top: 0;
+  z-index: -10;
+  min-width: 100%;
+  min-height: 100%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
+@keyframes MainTitle {
   from {
-    transform: rotate(0deg);
+    transform: translateY(400px);
+  }
+  70%{
+    transform: translateY(60px);
+  }
+  75%{
+    transform: translateY(50px);
+  }
+  80%{
+    transform: translateY(40px);
+  }
+  85%{
+    transform: translateY(30px);
+  }
+  90%{
+    transform: translateY(20px);
+  }
+  95%{
+    transform: translateY(10px);
   }
   to {
-    transform: rotate(360deg);
+    transform: translateY(0px);
   }
+}
+@keyframes MainTitleRev {
+  from {
+    transform: translateY(-400px);
+  }
+  70%{
+    transform: translateY(-60px);
+  }
+  75%{
+    transform: translateY(-50px);
+  }
+  80%{
+    transform: translateY(-40px);
+  }
+  85%{
+    transform: translateY(-30px);
+  }
+  90%{
+    transform: translateY(-20px);
+  }
+  95%{
+    transform: translateY(-10px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+
+#title-cont{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#cont{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+}
+
+#sumas-title{
+  color: white;
+  animation: MainTitle var(--title-delay) ease-in ;
+  align-self: center;
+}
+#uprm-title{
+  color: green;
+  animation: MainTitleRev var(--title-delay) ease-in ;
+  align-self: center;
+}
+
+.main-title {
+  text-align: center;
+  font-size: 72px;
+  font-weight: bold;
+  
 }

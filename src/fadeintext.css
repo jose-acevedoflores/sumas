@@ -1,0 +1,47 @@
+
+.ex span {
+    opacity: 0;
+    transition: opacity 1300ms;
+}
+
+.ex span:nth-child(1)  { transition-delay:  200ms }
+.ex span:nth-child(2)  { transition-delay: 1200ms }
+.ex span:nth-child(3)  { transition-delay:  800ms }
+.ex span:nth-child(4)  { transition-delay:  300ms }
+.ex span:nth-child(5)  { transition-delay:  700ms }
+.ex span:nth-child(6)  { transition-delay:  600ms }
+.ex span:nth-child(7)  { transition-delay:  400ms }
+.ex span:nth-child(8)  { transition-delay:  900ms }
+.ex span:nth-child(9)  { transition-delay:  700ms }
+.ex span:nth-child(10) { transition-delay:   50ms }
+
+.ex.wut span {
+    opacity: 1
+}
+.typography-example, .typography-example * {
+cursor: default;
+}
+.typography-example {
+position: relative;
+}
+.typography-example {
+line-height: normal;
+margin-bottom: 8rem;
+}
+.example {
+max-width: 100%;
+overflow: auto;
+-webkit-overflow-scrolling: touch;
+}
+
+.typography-example-1 {
+color: #FFF;
+padding: 1em 0;
+text-align: center;
+font-weight: 300;
+text-transform: uppercase;
+letter-spacing: .4em;
+padding-left: .4em;
+font-size: 1.8em;
+margin-top: 2.5rem;
+}
