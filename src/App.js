@@ -18,9 +18,12 @@ function App() {
         : fadeTextData.concat({text: uprm, color:"green"});
     return (
         <>
-            <video autoPlay muted loop playsInline>
-                {/* <source src={`https://uprmsumas.z13.web.core.windows.net/ssc7.mp4`} type="video/mp4"/> */}
-                <source src={`/ssc7.mp4`} type="video/mp4"/>
+            <video autoPlay muted loop playsInline 
+                poster="/ss1.jpg"
+                // poster="https://uprmsumas.z13.web.core.windows.net/ss1.jpg"
+            >
+                {/* <source src={`https://uprmsumas.z13.web.core.windows.net/ssc8.mp4`} type="video/mp4"/> */}
+                <source src={`/ssc8.mp4`} type="video/mp4"/>
                 Your browser does not support the video tag.
             </video>
             <div id="vid-overlay"></div>
