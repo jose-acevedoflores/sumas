@@ -1,9 +1,9 @@
+import React from 'react';
 import './App.css';
 import FadeInText from './FadeInText';
-
-// function getRandomInt(max) {
-//     return Math.floor(Math.random() * Math.floor(max)) + 1;
-// }
+import {FADE_IN_DELAY_MS} from './consts';
+const prefix = "/"
+// const prefix = "https://uprmsumas.z13.web.core.windows.net/"
 
 const maxWidthPixels = 600;
 const fadeTextData = [{ text:"Student Internship In Sustainable Management of Agricultural Systems", 
@@ -15,26 +15,35 @@ const fd = [{text: uprm, color:"green"}];
 function App() {
     const isNotMobile = window.innerWidth > maxWidthPixels;
 
+    const [waitTimeOver, setWaitTimeOver ] = React.useState(false);
+
+    React.useEffect(() =>
+        setTimeout( () => {
+            setWaitTimeOver(true);
+        } , FADE_IN_DELAY_MS)
+    , [setWaitTimeOver])
+
     return (
         <>
-            <video autoPlay muted loop playsInline 
-                poster="/ss1.jpg"
-                // poster="https://uprmsumas.z13.web.core.windows.net/ss1.jpg"
-            >
-                {/* <source src={`https://uprmsumas.z13.web.core.windows.net/ssc8.mp4`} type="video/mp4"/> */}
-                <source src={`/ssc8.mp4`} type="video/mp4"/>
+            <video autoPlay muted loop playsInline poster={prefix+"ss1.jpg"} >
+                <source src={`${prefix}ssc8.mp4`} type="video/mp4"/>
                 Your browser does not support the video tag.
             </video>
             <div id="vid-overlay"></div>
             <div id="cont">
+                <img 
+                    id="uprm-seal" 
+                    src={prefix+"uprmseal.png"}
+                    style={ waitTimeOver ? {"opacity": "1"} : {}} 
+                />
                 <div id="title-cont">
                     <div className="main-title" id="sumas-title"> Su </div>
                     <div className="main-title" id="uprm-title" > M </div>
                     <div className="main-title" id="sumas-title"> AS </div>
                 </div>
                 
-                <FadeInText data={fadeTextData} isNotMobile/>
-                <FadeInText data={fd} isNotMobile/>
+                <FadeInText data={fadeTextData} isNotMobile FADE_IN_DELAY_MS={FADE_IN_DELAY_MS}/>
+                <FadeInText data={fd} isNotMobile FADE_IN_DELAY_MS={FADE_IN_DELAY_MS}/>
                 
                 <div id="footer">
 

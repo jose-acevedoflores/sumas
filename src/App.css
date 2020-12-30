@@ -109,13 +109,23 @@ video {
 
 .main-title {
   text-align: center;
-  font-size: 72px;
+  font-size: 102px;
   font-weight: bold;
-  /* font-family: "Forum"; */
+  font-family: "Forum";
 }
 
 #footer{
   padding-top: 3.5em;
+}
+
+#uprm-seal{
+  z-index: 1;
+  max-width: 128px;
+  max-height: 128px;
+  align-self: center;
+  padding-top: 26px;
+  opacity: 0;
+  transition: opacity var(--title-delay);
 }
 
 @media only screen and (max-width: 600px) {
@@ -124,6 +134,10 @@ video {
   }
   #footer{
     padding-top: 2.5em;
+  }
+  #uprm-seal{
+    max-width: 64px;
+    max-height: 64px;
   }
 }
 

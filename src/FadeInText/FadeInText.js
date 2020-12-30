@@ -1,16 +1,16 @@
 import React from 'react';
-import './fadeintext.css'
+import './fadeintext.css';
 
 function FadeInText(props) {
 
-    const {data, isNotMobile} = props;
+    const {data, isNotMobile, FADE_IN_DELAY_MS} = props;
     
     const [waitTimeOver, setWaitTimeOver ] = React.useState(false);
 
     React.useEffect(() =>
         setTimeout( () => {
             setWaitTimeOver(true);
-        } ,1000)
+        } , FADE_IN_DELAY_MS)
     , [setWaitTimeOver])
 
     return (
