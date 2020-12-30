@@ -33,17 +33,18 @@ function App() {
             <div id="cont">
                 <img 
                     id="uprm-seal" 
+                    alt=""
                     src={prefix+"uprmseal.png"}
                     style={ waitTimeOver ? {"opacity": "1"} : {}} 
                 />
                 <div id="title-cont">
                     <div className="main-title" id="sumas-title"> Su </div>
-                    <div className="main-title" id="uprm-title" > M </div>
+                    <div className="main-title" id="uprm-title"> M </div>
                     <div className="main-title" id="sumas-title"> AS </div>
                 </div>
                 
-                <FadeInText data={fadeTextData} isNotMobile FADE_IN_DELAY_MS={FADE_IN_DELAY_MS}/>
-                <FadeInText data={fd} isNotMobile FADE_IN_DELAY_MS={FADE_IN_DELAY_MS}/>
+                <FadeInText isNotMobile data={fadeTextData}  FADE_IN_DELAY_MS={FADE_IN_DELAY_MS}/>
+                <FadeInText isNotMobile data={fd} FADE_IN_DELAY_MS={FADE_IN_DELAY_MS}/>
                 
                 <div id="footer">
 

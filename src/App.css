@@ -102,15 +102,18 @@ video {
 }
 #uprm-title{
   color: green;
-  font-weight: bold;
   animation: MainTitleRev var(--title-delay) ease-in ;
   align-self: center;
 }
 
+#uprm-title.main-title{
+  font-size: calc(1.5 * var(--m-size));
+}
+
 .main-title {
+  --m-size: 102px;
   text-align: center;
-  font-size: 102px;
-  font-weight: bold;
+  font-size: var(--m-size);
   font-family: "Forum";
 }
 
@@ -130,8 +133,10 @@ video {
 
 @media only screen and (max-width: 600px) {
   .main-title {
-    font-size: 52px;
+    --m-size: 52px;
+    font-size: var(--m-size);
   }
+  
   #footer{
     padding-top: 2.5em;
   }

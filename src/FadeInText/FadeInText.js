@@ -11,7 +11,7 @@ function FadeInText(props) {
         setTimeout( () => {
             setWaitTimeOver(true);
         } , FADE_IN_DELAY_MS)
-    , [setWaitTimeOver])
+    , [setWaitTimeOver, FADE_IN_DELAY_MS])
 
     return (
         <div className="fade-text typography-fade-text typography-fade-text-1 fd">
