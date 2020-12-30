@@ -9,21 +9,25 @@ html, body, #root {
 #vid-overlay{
   position: absolute;
   top: 0;
-  z-index: -9;
+  z-index: -5;
   min-width: 100%;
   min-height: 100%;
   background-color: black;
-  opacity: 0.3;
+  opacity: 0.7;
 }
 
-#myVideo {
-  position: absolute;
+/* 
+https://css-tricks.com/full-page-background-video-styles/
+*/
+video {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
   top: 0;
+  left: 0;
   z-index: -10;
-  min-width: 100%;
-  min-height: 100%;
 }
-
 
 @keyframes MainTitle {
   from {
@@ -99,6 +103,7 @@ html, body, #root {
 }
 #uprm-title{
   color: green;
+  font-weight: bold;
   animation: MainTitleRev var(--title-delay) ease-in ;
   align-self: center;
 }
@@ -108,4 +113,10 @@ html, body, #root {
   font-size: 72px;
   font-weight: bold;
   
+}
+
+@media only screen and (max-width: 600px) {
+  .main-title {
+    font-size: 52px;
+  }
 }

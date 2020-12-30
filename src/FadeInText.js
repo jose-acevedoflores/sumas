@@ -3,19 +3,27 @@ import './fadeintext.css'
 
 function FadeInText(props) {
 
-    const {text} = props;
+    const {data, isNotMobile} = props;
     
-    const [wut, setWut ] = React.useState(false);
+    const [waitTimeOver, setWaitTimeOver ] = React.useState(false);
 
     React.useEffect(() =>
         setTimeout( () => {
-            setWut(true);
+            setWaitTimeOver(true);
         } ,1000)
-    , [setWut])
+    , [setWaitTimeOver])
 
     return (
-        <div className="example typography-example typography-example-1 ex">
-            {text.split(' ').map((word, i) => <span key={i} style={ wut ? {"opacity": "1"} : {}}> {word} </span> )}     
+        <div className="fade-text typography-fade-text typography-fade-text-1 fd">
+            {data.map(obj => 
+                    obj.text.split(' ').map(
+                        (word, i) => 
+                            <span 
+                                key={i} 
+                                style={ waitTimeOver ? {"opacity": "1", color:obj.color} : {}}
+                            > {word} </span> 
+                )
+            )}     
         </div>
     )
 }
