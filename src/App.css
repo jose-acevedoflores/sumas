@@ -114,8 +114,16 @@ video {
   /* font-family: "Forum"; */
 }
 
+#footer{
+  padding-top: 3.5em;
+}
+
 @media only screen and (max-width: 600px) {
   .main-title {
     font-size: 52px;
   }
+  #footer{
+    padding-top: 2.5em;
+  }
 }
+

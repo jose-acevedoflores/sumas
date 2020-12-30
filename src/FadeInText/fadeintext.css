@@ -21,13 +21,7 @@
 .typography-fade-text {
     position: relative;
     line-height: normal;
-    margin-bottom: 8rem;
 }
-@media only screen and (max-width: 600px) {
-    .typography-fade-text {
-        margin-bottom: 0;
-    }
-  }
 
 .fade-text {
     max-width: 100%;
@@ -37,12 +31,10 @@
 
 .typography-fade-text-1 {
     color: #FFF;
-    padding: 1em 0;
     text-align: center;
     font-weight: 300;
     text-transform: uppercase;
     letter-spacing: .4em;
     padding-left: .4em;
     font-size: 1.8em;
-    margin-top: 2.5rem;
 }

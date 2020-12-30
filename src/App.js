@@ -10,12 +10,11 @@ const fadeTextData = [{ text:"Student Internship In Sustainable Management of Ag
                         color:"white"}]
 const uprm = "UPR Mayagüez";
 
+const fd = [{text: uprm, color:"green"}];
+
 function App() {
     const isNotMobile = window.innerWidth > maxWidthPixels;
 
-    const data = isNotMobile 
-        ? fadeTextData 
-        : fadeTextData.concat({text: uprm, color:"green"});
     return (
         <>
             <video autoPlay muted loop playsInline 
@@ -30,12 +29,16 @@ function App() {
             <div id="cont">
                 <div id="title-cont">
                     <div className="main-title" id="sumas-title"> Su </div>
-                    <div className="main-title" id="sumas-title" style={{color:"green"}}> M </div>
+                    <div className="main-title" id="uprm-title" > M </div>
                     <div className="main-title" id="sumas-title"> AS </div>
-
-                    {isNotMobile && <div className="typography-fade-text-1" id="uprm-title"> {uprm} </div> }
                 </div>
-                <FadeInText data={data} isNotMobile/>
+                
+                <FadeInText data={fadeTextData} isNotMobile/>
+                <FadeInText data={fd} isNotMobile/>
+                
+                <div id="footer">
+
+                </div>
             </div>
         </>
     );
