@@ -19,6 +19,7 @@ function App() {
     return (
         <>
             <video autoPlay muted loop playsInline>
+                {/* <source src={`https://uprmsumas.z13.web.core.windows.net/ssc7.mp4`} type="video/mp4"/> */}
                 <source src={`/ssc7.mp4`} type="video/mp4"/>
                 Your browser does not support the video tag.
             </video>
