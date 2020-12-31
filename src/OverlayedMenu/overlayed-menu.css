@@ -1,9 +1,4 @@
 
-@keyframes OverlayRL {
-    0% { left: 100%;}
-    100%{ left : 0;}
-}
-
 #overlayed-menu {
     z-index: 5;
     position: absolute;
