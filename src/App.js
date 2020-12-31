@@ -3,6 +3,7 @@ import './App.css';
 import FadeInText from './FadeInText';
 import {FADE_IN_DELAY_MS} from './consts';
 import HamburgerIcon from './Hamburger';
+import OverlayedMenu from './OverlayedMenu';
 const prefix = "/"
 // const prefix = "https://uprmsumas.z13.web.core.windows.net/"
 
@@ -13,10 +14,22 @@ const uprm = "UPR Mayagüez";
 
 const fd = [{text: uprm, color:"green"}];
 
+function getUprmSealStyle(waitTimeOver, menuOpened){
+    if(waitTimeOver){
+        return menuOpened ? {"opacity": "0"} : {"opacity": "1"};
+    } else {
+        return {};
+    }
+}
+
 function App() {
     const isNotMobile = window.innerWidth > maxWidthPixels;
 
     const [waitTimeOver, setWaitTimeOver ] = React.useState(false);
+    const [menuOpened, setMenuOpened] = React.useState(false);
+
+    const menuPresentFadeOutClass = "om-fd " + (menuOpened ? "om-fd-open" : "om-fd-close"); 
+    const uprmSealStyle = getUprmSealStyle(waitTimeOver, menuOpened);
 
     React.useEffect(() =>
         setTimeout( () => {
@@ -31,16 +44,18 @@ function App() {
                 Your browser does not support the video tag.
             </video>
             <div id="vid-overlay"></div>
+            <HamburgerIcon stateCb={setMenuOpened}/>
+            <OverlayedMenu menuOpened={menuOpened}/>
             <div id="cont">
                 <img 
                     id="uprm-seal" 
                     alt=""
                     src={prefix+"uprmseal.png"}
-                    style={ waitTimeOver ? {"opacity": "1"} : {}} 
+                    style={uprmSealStyle} 
                 />
-                <HamburgerIcon/>
+               
             
-                <div id="title-cont">
+                <div id="title-cont" className={menuPresentFadeOutClass}>
                     <div className="main-title" id="sumas-title"> Su </div>
                     <div className="main-title" id="uprm-title"> M </div>
                     <div className="main-title" id="sumas-title"> AS </div>
