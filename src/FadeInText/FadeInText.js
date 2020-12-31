@@ -1,9 +1,23 @@
 import React from 'react';
 import './fadeintext.css';
 
+function processWord(word, i, color, waitTimeOver){
+    return (
+        <span 
+            key={i} 
+            style={ waitTimeOver ? {"opacity": "1", color} : {}}
+        > {word} </span>
+    )
+}
+
+function parseDataObj(obj, waitTimeOver){
+    const {text, color} = obj;
+    return text.split(' ').map((word, i) => processWord(word, i, color, waitTimeOver));
+}
+
 function FadeInText(props) {
 
-    const {data, isNotMobile, FADE_IN_DELAY_MS} = props;
+    const {data, FADE_IN_DELAY_MS} = props;
     
     const [waitTimeOver, setWaitTimeOver ] = React.useState(false);
 
@@ -15,15 +29,7 @@ function FadeInText(props) {
 
     return (
         <div className="fade-text typography-fade-text typography-fade-text-1 fd">
-            {data.map(obj => 
-                    obj.text.split(' ').map(
-                        (word, i) => 
-                            <span 
-                                key={i} 
-                                style={ waitTimeOver ? {"opacity": "1", color:obj.color} : {}}
-                            > {word} </span> 
-                )
-            )}     
+            {data.map(obj => parseDataObj(obj, waitTimeOver))}     
         </div>
     )
 }
