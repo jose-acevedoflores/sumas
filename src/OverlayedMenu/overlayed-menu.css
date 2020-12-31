@@ -8,6 +8,34 @@
     background-color: mintcream;
     opacity: 0.7;
     transition: left var( --title-delay);
+    display: flex;
+    justify-content: flex-end;
+}
+
+#om-list {
+    align-self: center;
+    margin-right: 120px;
+    list-style-type: none;
+    font-size: 1.3em;
+}
+
+#om-list > li {
+    cursor: pointer;
+    user-select: none;
+    margin: 14px 0px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.om-marker {
+    margin-left: 8px;
+    width: 40px;
+    height: 2px;
+    align-self: center;
+}
+
+.om-li-selected{
+    background-color: black;
 }
 
 .om-closed {
@@ -16,4 +44,10 @@
 
 .om-opened {
     left: 0;
+}
+
+@media only screen and (max-width: 600px) {
+    #om-list {
+        margin-right: 60px;
+    }
 }
