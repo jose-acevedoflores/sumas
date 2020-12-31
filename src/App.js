@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import FadeInText from './FadeInText';
 import {FADE_IN_DELAY_MS} from './consts';
+import HamburgerIcon from './Hamburger';
 const prefix = "/"
 // const prefix = "https://uprmsumas.z13.web.core.windows.net/"
 
@@ -37,6 +38,8 @@ function App() {
                     src={prefix+"uprmseal.png"}
                     style={ waitTimeOver ? {"opacity": "1"} : {}} 
                 />
+                <HamburgerIcon/>
+            
                 <div id="title-cont">
                     <div className="main-title" id="sumas-title"> Su </div>
                     <div className="main-title" id="uprm-title"> M </div>
