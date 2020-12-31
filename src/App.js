@@ -44,8 +44,8 @@ function App() {
                 Your browser does not support the video tag.
             </video>
             <div id="vid-overlay"></div>
-            <HamburgerIcon stateCb={setMenuOpened}/>
-            <OverlayedMenu menuOpened={menuOpened}/>
+            <HamburgerIcon opened={menuOpened} setOpened={setMenuOpened}/>
+            <OverlayedMenu menuOpened={menuOpened} closeMenu={() => setMenuOpened(false)}/>
             <div id="cont">
                 <img 
                     id="uprm-seal" 

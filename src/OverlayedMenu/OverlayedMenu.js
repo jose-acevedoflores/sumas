@@ -10,11 +10,11 @@ const menuEntries = [
     "Contact Us"
 ];
 
-function buildLiEntry(entry) {
+function buildLiEntry(entry, closeMenu) {
     const isSelected = entry === "Home";
     const clazz = "om-marker " + ( isSelected ? "om-li-selected" : "");
     return (
-        <li key={entry}> 
+        <li key={entry} onClick={closeMenu}> 
             <span> {entry} </span> <span className={clazz}/>
         </li>
     )
@@ -26,7 +26,7 @@ function OverlayedMenu(props) {
     return (
         <div id="overlayed-menu" className={clazz}>
             <ul id="om-list">
-                {menuEntries.map(buildLiEntry)}
+                {menuEntries.map(entry => buildLiEntry(entry, props.closeMenu))}
             </ul>
         </div>
     )
