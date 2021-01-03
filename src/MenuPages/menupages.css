@@ -1,6 +1,6 @@
 
 .menu-page {
-    color: white;
+    color: darkslategray;
     transition: opacity var(--title-delay);
     flex-grow: 1; 
 }
@@ -13,10 +13,42 @@
 }
 
 .bg-project{
-    background-color: rgb(28, 52, 28);
+    background-color: ghostwhite;
 }
 
 .bg-team{
 
-    background-color: rgb(78, 82, 13);
+    background-color:ghostwhite;
 }
+
+.page-contents {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+}
+
+.pc-entry{
+    flex-grow: 1;
+    align-self: center;
+}
+
+.pce-main {
+    font-family: "Forum";
+    text-align: center;
+    font-size: 3.8em;
+    font-weight: normal;
+}
+
+
+@media only screen and (max-width: 600px) , screen and (max-height: 600px) {
+    .page-contents{
+        flex-direction: column;
+        padding-top: 40px;
+    }
+    .pc-entry{
+        flex-grow: unset;
+    }
+}
+

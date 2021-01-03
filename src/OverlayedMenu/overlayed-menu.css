@@ -5,7 +5,7 @@
     top: 0;
     min-width: 100%;
     min-height: 100%;
-    background-color: mintcream;
+    background-color:lightslategray;
     opacity: 0.7;
     transition: left var( --title-delay);
     display: flex;
@@ -20,6 +20,7 @@
 }
 
 #om-list > li {
+    color: white;
     cursor: pointer;
     user-select: none;
     margin: 14px 0px;
@@ -36,7 +37,7 @@
 }
 
 .om-li-selected{
-    background-color: black;
+    background-color: white;
     opacity: 1;
 }
 
