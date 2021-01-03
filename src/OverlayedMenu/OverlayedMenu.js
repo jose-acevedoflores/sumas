@@ -13,19 +13,14 @@ function buildLiEntry(entry, moveToCb, curRoute) {
 }
 
 function OverlayedMenu(props) {
-    const {router, closeMenu, menuOpened} = props;
+    const {router, menuOpened} = props;
     
-    const moveToCb = route => {
-        router.moveToRoute(route);
-        closeMenu();
-    }
-
     const clazz = menuOpened ? "om-opened" : "om-closed";
     const curRoute = router.getCurLoc();
     return (
         <div id="overlayed-menu" className={clazz}>
             <ul id="om-list">
-                {router.menuEntries.map(entry => buildLiEntry(entry, moveToCb, curRoute))}
+                {router.menuEntries.map(entry => buildLiEntry(entry, router.moveToRoute, curRoute))}
             </ul>
         </div>
     )

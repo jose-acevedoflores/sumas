@@ -26,18 +26,18 @@ function App() {
             
             <HamburgerIcon opened={menuOpened} setOpened={setMenuOpened}/>
             <OverlayedMenu 
-                menuOpened={menuOpened} 
-                closeMenu={() => setMenuOpened(false)}
+                menuOpened={menuOpened}
                 router={router}
             />
-            
+
             <div id="cont">
-                <PagesSwitch 
+                <PagesSwitch
                     menuOpened={menuOpened}
-                    prefix={prefix} 
+                    setMenuOpened={setMenuOpened}
+                    prefix={prefix}
                     router={router}
                     FADE_IN_DELAY_MS={FADE_IN_DELAY_MS} />
-                
+
                 <div id="footer"> </div>
             </div>
         </>

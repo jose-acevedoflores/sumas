@@ -14,6 +14,11 @@ class PagesSwitch extends React.Component {
     }
 
     handleNavigation = () => {
+        const {menuOpened, setMenuOpened} = this.props;
+        if(menuOpened){
+            setMenuOpened(false);
+        }
+        //This triggers the render again
         this.setState({});
     }
     
