@@ -1,32 +1,31 @@
 import React from 'react';
 import './overlayed-menu.css';
 
-const menuEntries = [
-    "Home",
-    "SuMAS Project",
-    "Our Team",
-    "Opportunities",
-    "Apply",
-    "Contact Us"
-];
-
-function buildLiEntry(entry, closeMenu) {
-    const isSelected = entry === "Home";
-    const clazz = "om-marker " + ( isSelected ? "om-li-selected" : "");
+function buildLiEntry(entry, moveToCb, curRoute) {
+    const {txt, route} = entry;
+    const isSelected = route === curRoute;
+    const clazz = "om-marker " + ( isSelected ? "om-li-selected" : "om-li-unselected");
     return (
-        <li key={entry} onClick={closeMenu}> 
-            <span> {entry} </span> <span className={clazz}/>
+        <li key={route} onClick={() => moveToCb(route)}> 
+            <span> {txt} </span> <span className={clazz}/>
         </li>
     )
 }
 
 function OverlayedMenu(props) {
+    const {router, closeMenu, menuOpened} = props;
     
-    const clazz = props.menuOpened ? "om-opened" : "om-closed";
+    const moveToCb = route => {
+        router.moveToRoute(route);
+        closeMenu();
+    }
+
+    const clazz = menuOpened ? "om-opened" : "om-closed";
+    const curRoute = router.getCurLoc();
     return (
         <div id="overlayed-menu" className={clazz}>
             <ul id="om-list">
-                {menuEntries.map(entry => buildLiEntry(entry, props.closeMenu))}
+                {router.menuEntries.map(entry => buildLiEntry(entry, moveToCb, curRoute))}
             </ul>
         </div>
     )

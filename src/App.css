@@ -145,11 +145,17 @@ video {
     align-self: center;
     padding-top: 26px;
     user-select: none;
-    opacity: 0;
     transition: opacity var(--title-delay);
 }
 
-@media only screen and (max-width: 600px) {
+.op1 {
+    opacity: 1;
+}
+.op0{
+    opacity: 0;
+}
+
+@media only screen and (max-width: 600px) , screen and (max-height: 600px) {
     .main-title {
         --m-size: 52px;
         font-size: var(--m-size);

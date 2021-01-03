@@ -32,10 +32,16 @@
     width: 40px;
     height: 2px;
     align-self: center;
+    transition: opacity 500ms;
 }
 
 .om-li-selected{
     background-color: black;
+    opacity: 1;
+}
+
+.om-li-unselected{
+    opacity: 0;
 }
 
 .om-closed {
@@ -46,7 +52,7 @@
     left: 0;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 600px) , screen and (max-height: 600px) {
     #om-list {
         margin-right: 60px;
     }

@@ -4,23 +4,17 @@ import './MenuPages/menupages.css';
 import {FADE_IN_DELAY_MS} from './consts';
 import HamburgerIcon from './Hamburger';
 import OverlayedMenu from './OverlayedMenu';
-import Home from './MenuPages/Home';
+import PagesSwitch from './Router/PagesSwitch';
+import * as router from './Router/router';
 const prefix = "/"
 // const prefix = "https://uprmsumas.z13.web.core.windows.net/"
 
-// const maxWidthPixels = 600;
+// const maxWidthPixels = 600; 
 
 function App() {
     // const isNotMobile = window.innerWidth > maxWidthPixels;
 
-    const [waitTimeOver, setWaitTimeOver ] = React.useState(false);
     const [menuOpened, setMenuOpened] = React.useState(false);
-
-    React.useEffect(() =>
-        setTimeout( () => {
-            setWaitTimeOver(true);
-        } , FADE_IN_DELAY_MS)
-    , [setWaitTimeOver])
 
     return (
         <>
@@ -31,13 +25,17 @@ function App() {
             <div id="vid-overlay"></div>
             
             <HamburgerIcon opened={menuOpened} setOpened={setMenuOpened}/>
-            <OverlayedMenu menuOpened={menuOpened} closeMenu={() => setMenuOpened(false)}/>
+            <OverlayedMenu 
+                menuOpened={menuOpened} 
+                closeMenu={() => setMenuOpened(false)}
+                router={router}
+            />
             
             <div id="cont">
-                <Home 
+                <PagesSwitch 
                     menuOpened={menuOpened}
-                    waitTimeOver={waitTimeOver}
                     prefix={prefix} 
+                    router={router}
                     FADE_IN_DELAY_MS={FADE_IN_DELAY_MS} />
                 
                 <div id="footer"> </div>

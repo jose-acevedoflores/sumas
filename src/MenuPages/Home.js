@@ -3,9 +3,9 @@ import FadeInText from '../FadeInText';
 
 function getUprmSealStyle(waitTimeOver, menuOpened){
     if(waitTimeOver){
-        return menuOpened ? {"opacity": "0"} : {"opacity": "1"};
+        return menuOpened ? "op0" : "op1";
     } else {
-        return {};
+        return "op0";
     }
 }
 
@@ -16,8 +16,15 @@ const uprm = "UPR Mayagüez";
 const fd = [{text: uprm, color:"green"}];
 
 function Home(props){
-    const {menuOpened, waitTimeOver, FADE_IN_DELAY_MS, prefix} = props;
+    const {menuOpened, prefix, FADE_IN_DELAY_MS} = props;
+    const [waitTimeOver, setWaitTimeOver ] = React.useState(false);
 
+    React.useEffect(() =>
+        setTimeout( () => {
+            setWaitTimeOver(true);
+        } , FADE_IN_DELAY_MS)
+    , [setWaitTimeOver, FADE_IN_DELAY_MS])
+  
     const menuPresentFadeOutClass = "om-fd " + (menuOpened ? "om-fd-open" : "om-fd-close"); 
     const uprmSealStyle = getUprmSealStyle(waitTimeOver, menuOpened);
     return (
@@ -26,7 +33,7 @@ function Home(props){
                 id="uprm-seal" 
                 alt=""
                 src={prefix+"uprmseal.png"}
-                style={uprmSealStyle} 
+                className={uprmSealStyle} 
             />
             
             <div id="title-cont" className={menuPresentFadeOutClass}>
