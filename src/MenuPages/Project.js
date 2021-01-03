@@ -5,8 +5,8 @@ function Project(props){
     const {className} = props;
 
     return (
-        <div id="sumas-project" className={className}>
-            <div className="over"></div>
+        <div id="sumas-project" className={className +" menu-page"}>
+            <div className="over bg-project"></div>
             <div style={{position:'relative', textAlign:"center"}}>TODO</div>
         </div>
     );

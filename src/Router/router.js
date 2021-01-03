@@ -23,3 +23,6 @@ export const getCurLoc = () => {
 export const isProjectRoute = () => {
     return getCurLoc() === "project";
 }
+export const isOurTeamRoute = () => {
+    return getCurLoc() === "team";
+}
