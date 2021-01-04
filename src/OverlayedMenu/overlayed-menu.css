@@ -53,6 +53,12 @@
     left: 0;
 }
 
+.flag-icon{
+    height: 32px;
+    width: 32px;
+    clip-path: circle(30% at 35%);
+}
+
 @media only screen and (max-width: 600px) , screen and (max-height: 600px) {
     #om-list {
         margin-right: 60px;

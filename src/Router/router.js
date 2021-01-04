@@ -1,4 +1,4 @@
-export const menuRoutes = {
+const menuRoutesEn = {
     "": {txt: "Home"},
     "project": {txt: "SuMAS Project"},
     "team": {txt: "Our Team"},
@@ -7,7 +7,27 @@ export const menuRoutes = {
     "contact": {txt: "Contact Us"}
 };
 
-export const menuEntries = Object.entries(menuRoutes).map(([key, val]) => ({txt: val.txt, route: key}));
+const menuRoutesEs = {
+    "": {txt: "Inicio"},
+    "project": {txt: "Poyecto SuMAS"},
+    "team": {txt: "Nuestro Equipo"},
+    "opportunities": {txt: "Oportunidades"},
+    "apply": {txt: "Solicita"},
+    "contact": {txt: "Contáctanos"}
+};
+
+const menuEntriesEn = Object.entries(menuRoutesEn).map(([key, val]) => ({txt: val.txt, route: key}));
+const menuEntriesEs = Object.entries(menuRoutesEs).map(([key, val]) => ({txt: val.txt, route: key}));
+
+export const menuEntries = lng => {
+    if(lng === "es"){
+        return menuEntriesEs;
+    } else if(lng === "en"){
+        return menuEntriesEn;
+    } else {
+        return menuEntriesEn;
+    }
+}
 
 export const moveToRoute = route => {
     const cur = window.location.hash;

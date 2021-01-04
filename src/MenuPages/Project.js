@@ -1,25 +1,48 @@
 import React from 'react';
 import delayedComp from '../DelayedComponent';
 
+function localeParser(projectJson){
+    if(!projectJson){
+        return null;
+    }
+
+    return projectJson.slides.map((entry, i) => {
+        return (
+            <div key={i} className="page-contents">
+                <h1 className="pce-main pc-entry">
+                    {entry.title}
+                </h1>
+                <div className="pce-secondary pc-entry">
+                    {entry.content}
+                </div>
+            </div>
+        );
+    });
+};
+
 function Project(props){
-    const {className} = props;
+    const {lng} = props;
+    let {className} = props;
+    const [pageInfo, loadPageInfo] = React.useState(null);
+
+    React.useEffect(()=>{
+        loadPageInfo(null);
+        fetch("locales/"+lng+"/project.json").then(response => response.json())
+        .then(data => {
+            console.log(data);
+            loadPageInfo(data);
+        });
+
+    }, [loadPageInfo, lng]);
+
+    if(className==="op1" && pageInfo === null){
+        className = "op0";
+    }
 
     return (
         <div id="sumas-project" className={className +" menu-page"}>
-            <div className="over bg-project"></div>
-            <div className="page-contents">
-                <h1 className="pce-main pc-entry">
-                    Mission
-                </h1>
-                <div className="pce-secondary pc-entry">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-                  incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
-                  nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-                  eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-                  sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </div>
-            </div>
+            <div className="over"></div>
+            {localeParser(pageInfo)}
         </div>
     );
 }

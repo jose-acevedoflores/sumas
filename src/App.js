@@ -15,6 +15,7 @@ function App() {
     // const isNotMobile = window.innerWidth > maxWidthPixels;
 
     const [menuOpened, setMenuOpened] = React.useState(false);
+    const [lng, setLng] = React.useState("en");
 
     return (
         <>
@@ -23,22 +24,25 @@ function App() {
                 Your browser does not support the video tag.
             </video>
             <div id="vid-overlay"></div>
-            
+
             <HamburgerIcon opened={menuOpened} setOpened={setMenuOpened}/>
-            <OverlayedMenu 
+            <OverlayedMenu
                 menuOpened={menuOpened}
                 router={router}
+                prefix={prefix}
+                lng={lng}
+                setLng={setLng}
             />
 
             <div id="cont">
                 <PagesSwitch
                     menuOpened={menuOpened}
+                    lng={lng}
                     setMenuOpened={setMenuOpened}
                     prefix={prefix}
                     router={router}
                     FADE_IN_DELAY_MS={FADE_IN_DELAY_MS} />
 
-                <div id="footer"> </div>
             </div>
         </>
     );

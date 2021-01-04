@@ -1,7 +1,11 @@
 html, body, #root {
     height: 100%;
     width: 100%;
-    overflow: hidden;
+}
+
+html, body {
+    overflow-x: hidden;
+    position: relative;
 }
 
 :root {
@@ -23,6 +27,7 @@ html, body, #root {
 #vid-overlay{
     position: absolute;
     top: 0;
+    right: 0;
     min-width: 100%;
     min-height: 100%;
     background-color: black;

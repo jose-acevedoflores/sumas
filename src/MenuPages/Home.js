@@ -44,6 +44,8 @@ function Home(props){
             
             <FadeInText data={fadeTextData} FADE_IN_DELAY_MS={FADE_IN_DELAY_MS}/>
             <FadeInText data={fd} FADE_IN_DELAY_MS={FADE_IN_DELAY_MS}/>
+
+            <div id="footer"> </div>
         </>
     )
 }
