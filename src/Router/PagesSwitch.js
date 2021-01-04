@@ -2,6 +2,7 @@ import React from 'react';
 import Home from '../MenuPages/Home';
 import Project from '../MenuPages/Project';
 import OurTeam from '../MenuPages/OurTeam';
+import ContactUs from '../MenuPages/ContactUs';
 
 
 class PagesSwitch extends React.Component {
@@ -30,6 +31,8 @@ class PagesSwitch extends React.Component {
             comp = <Project {...this.props}/>
         } else if(router.isOurTeamRoute()){
             comp = <OurTeam {...this.props}/>
+        } else if(router.isContactRoute()){
+            comp = <ContactUs {...this.props}/>
         } else {
             comp = <Home {...this.props}/>;
         }

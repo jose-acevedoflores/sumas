@@ -26,3 +26,8 @@ export const isProjectRoute = () => {
 export const isOurTeamRoute = () => {
     return getCurLoc() === "team";
 }
+
+export const isContactRoute = () => {
+    return getCurLoc() === "contact";
+}
+
