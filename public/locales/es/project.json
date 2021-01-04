@@ -1,11 +1,12 @@
 {
-    "slides": [{
+    "slides": [
+        {
             "title": "Misión",
-            "content" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            "content" : "La misión del Internado de Verano SuMAS UPRM es mejorar el conocimiento, habilidad y capacidad de los estudiantes participantes en el Manejo Sustentable de Sistemas de Agricultura (SuMAS) en Puerto Rico a través de talleres, discusión en equipo, investigación, y proyectos."
         },
         {
             "title": "Visión",
-            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            "content": "La visión del Internado de Verano SuMAS UPRM es incrementar la preparación profesional y académica de estudiantes hispanos subgraduados de la UPR Mayagüez en agricultura, además de ampliar su concienciación y conocimiento en las prácticas de Manejo Sustentable de Sistemas de Agricultura (SuMAS) e Intensificación Sustentable de Agricultura (SAI) para servir mejor a la gente local de Puerto Rico, la agricultura nacional y las necesidades del sistema alimentario."
         }
     ]
 }
