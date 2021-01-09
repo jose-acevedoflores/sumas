@@ -2,6 +2,7 @@ import React from 'react';
 
 class CirclePaginator extends React.Component {
     state = { s:0 }
+    scrollCoordsToPageIndex = []
     componentDidMount(){
         //TODO consider using ref
         const tdiv = document.getElementById("menuPageTopDiv");
@@ -12,31 +13,67 @@ class CirclePaginator extends React.Component {
         tdiv.removeEventListener("scroll", this.cb);
     }
 
+    componentDidUpdate(prevProps){
+        if(!this.props.numEntries){
+            return;
+        }
+
+        if(prevProps.numEntries !== this.props.numEntries){
+            this.buildRange(window.innerWidth);
+        }
+    }
+
+    buildRange = windowInnerWidth => {
+        const pageWidth = windowInnerWidth;
+        const {numEntries} = this.props;
+        const entries = [];
+        for (let i = 0; i < numEntries; i++) {
+            entries.push(pageWidth * i);
+        }
+
+        this.scrollCoordsToPageIndex = entries;
+    }
+
+    getIndexFromScrollCoords = (scrollLeft, direction) => {
+        let index = -1;
+        for(let i = 0; i < this.scrollCoordsToPageIndex.length - 1; i++){
+            const cur = this.scrollCoordsToPageIndex[i];
+            const next = this.scrollCoordsToPageIndex[i+1];
+
+            if(scrollLeft > cur && scrollLeft < next){
+                index = i;
+                break;
+            }
+        }
+
+        if(index === -1){
+            return this.state.s;
+        }
+
+        return direction === "left" ? index : index+1;
+    }
+
     cb = event => {
-        const fromRight = event.target.scrollLeft;
-        console.log('TODO', fromRight);
-        // mainNavLinks.forEach(link => {
-        //   let section = document.querySelector(link.hash);
-      
-        //   if (
-        //     section.offsetTop <= fromTop &&
-        //     section.offsetTop + section.offsetHeight > fromTop
-        //   ) {
-        //     // link.classList.add("current");
-        //   } else {
-        //     // link.classList.remove("current");
-        //   }
-        // });
+        //TODO debounce it;
+        const scrollLeft = event.target.scrollLeft;
+        const direction = scrollLeft > this.scrollLeft ? "right" : "left";
+        this.scrollLeft = scrollLeft;
+
+        const res = this.getIndexFromScrollCoords(scrollLeft, direction);
+
+        if(this.state.s !== res){
+            this.setState({s: res});
+        }
     };
 
     genList = () => {
         const {numEntries} = this.props;
         const entries = [];
-        for (let i = 1; i <= numEntries; i++) {
+        for (let i = 0; i < numEntries; i++) {
             entries.push(<li
                 key={i}
-                className={this.state.s===i ? "active" : ""}
-                onClick={()=>this.setState({s: this.state.s === i ? 0 : i})}><span></span></li>);
+                className={this.state.s === i ? "active" : ""}
+                onClick={()=>this.setState({s: this.state.s === i ? -1 : i})}><span></span></li>);
         }
         return entries;
     }
