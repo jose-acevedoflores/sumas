@@ -1,8 +1,9 @@
 import React from 'react';
 import delayedComp from '../DelayedComponent';
+import CirclePaginator from './CirclePaginator';
 
 function Project(props){
-    const {lng, prefix, localeId} = props;
+    const {lng, prefix, localeId, snapScroll, useNavigator} = props;
     let {className} = props;
     const [pageInfo, loadPageInfo] = React.useState(null);
 
@@ -20,10 +21,14 @@ function Project(props){
         className = "op0";
     }
 
+    const clazz = className + " menu-page" + (snapScroll ? " menu-page-snap-scroll" : "");
+    const content = props.localeParser(pageInfo, prefix);
+
     return (
-        <div className={className +" menu-page"}>
+        <div id="menuPageTopDiv" className={clazz}>
             <div className="over"></div>
-            {props.localeParser(pageInfo, prefix)}
+            {content}
+            {useNavigator && <CirclePaginator numEntries={content && content.length}/>}
         </div>
     );
 }

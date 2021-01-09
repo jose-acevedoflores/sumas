@@ -24,11 +24,13 @@ function Project(props){
     const {lng, prefix, menuOpened} = props;
     return (
         <CommonMenuPage
+            snapScroll={true}
             lng={lng}
             prefix={prefix}
             localeId={"project.json"}
             localeParser={localeParser}
             menuOpened={menuOpened}
+            useNavigator={true}
         />
     );
 }

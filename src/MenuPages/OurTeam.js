@@ -30,11 +30,13 @@ function OurTeam(props){
     const {lng, prefix, menuOpened} = props;
     return (
         <CommonMenuPage
+            snapScroll={true}
             lng={lng}
             prefix={prefix}
             localeId={"ourteam.json"}
             localeParser={localeParser}
             menuOpened={menuOpened}
+            useNavigator={true}
         />
     );
 }
