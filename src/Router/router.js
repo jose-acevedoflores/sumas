@@ -54,3 +54,7 @@ export const isContactRoute = () => {
 export const isOpportunitiesRoute = () => {
     return getCurLoc() === "opportunities";
 }
+
+export const isApplyRoute = () => {
+    return getCurLoc() === "apply";
+}

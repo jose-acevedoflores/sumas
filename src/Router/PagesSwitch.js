@@ -4,7 +4,7 @@ import Project from '../MenuPages/Project';
 import OurTeam from '../MenuPages/OurTeam';
 import ContactUs from '../MenuPages/ContactUs';
 import Opportunities from '../MenuPages/Opportunities';
-
+import Apply from '../MenuPages/Apply';
 
 class PagesSwitch extends React.Component {
 
@@ -36,6 +36,8 @@ class PagesSwitch extends React.Component {
             comp = <ContactUs {...this.props}/>
         } else if(router.isOpportunitiesRoute()){
             comp = <Opportunities {...this.props}/>
+        } else if(router.isApplyRoute()){
+            comp = <Apply {...this.props}/>
         } else {
             comp = <Home {...this.props}/>;
         }
