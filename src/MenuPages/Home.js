@@ -32,7 +32,7 @@ function Home(props){
            <img 
                 id="uprm-seal" 
                 alt=""
-                src={prefix+"uprmseal.png"}
+                src={prefix+"media/img/uprmseal.png"}
                 className={uprmSealStyle} 
             />
             

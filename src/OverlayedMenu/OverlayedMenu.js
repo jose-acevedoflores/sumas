@@ -25,13 +25,13 @@ function OverlayedMenu(props) {
                 <li>
                     <img
                         alt=""
-                        src={prefix+"img/pr.png"}
+                        src={prefix+"media/img/pr.png"}
                         onClick={() => setLng("es")}
                         className="flag-icon"
                     />
                     <img
                         alt=""
-                        src={prefix+"img/us.png"}
+                        src={prefix+"media/img/us.png"}
                         onClick={() => setLng("en")}
                         className="flag-icon"
                     />

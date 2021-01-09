@@ -19,8 +19,8 @@ function App() {
 
     return (
         <>
-            <video autoPlay muted loop playsInline poster={prefix+"ss1.jpg"} >
-                <source src={`${prefix}ssc8.mp4`} type="video/mp4"/>
+            <video autoPlay muted loop playsInline poster={prefix+"media/img/ss1.jpg"} >
+                <source src={`${prefix}media/ssc8.mp4`} type="video/mp4"/>
                 Your browser does not support the video tag.
             </video>
             <div id="vid-overlay"></div>

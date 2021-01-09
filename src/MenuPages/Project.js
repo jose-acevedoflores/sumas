@@ -21,13 +21,13 @@ function localeParser(projectJson){
 };
 
 function Project(props){
-    const {lng} = props;
+    const {lng, prefix} = props;
     let {className} = props;
     const [pageInfo, loadPageInfo] = React.useState(null);
 
     React.useEffect(()=>{
         loadPageInfo(null);
-        fetch("locales/"+lng+"/project.json").then(response => response.json())
+        fetch(prefix+"locales/"+lng+"/project.json").then(response => response.json())
         .then(data => {
             console.log(data);
             loadPageInfo(data);
