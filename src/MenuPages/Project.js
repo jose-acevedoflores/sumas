@@ -33,7 +33,7 @@ function Project(props){
             loadPageInfo(data);
         });
 
-    }, [loadPageInfo, lng]);
+    }, [loadPageInfo, lng, prefix]);
 
     if(className==="op1" && pageInfo === null){
         className = "op0";

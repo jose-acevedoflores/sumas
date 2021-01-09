@@ -29,11 +29,31 @@ function Home(props){
     const uprmSealStyle = getUprmSealStyle(waitTimeOver, menuOpened);
     return (
         <>
+
+            <div id="top-logos">
+                {/* <img
+                    alt=""
+                    //TODO change for USDA logo
+                    src={prefix+"media/img/uprmseal.png"}
+                    className={"seals "+uprmSealStyle}
+                /> */}
+                <img
+                    alt=""
+                    src={prefix+"media/img/uprmseal.png"}
+                    className={"seals "+uprmSealStyle}
+                />
+                {/* <img
+                    alt=""
+                    //TODO change for Cornell logo
+                    src={prefix+"media/img/uprmseal.png"}
+                    className={"seals "+uprmSealStyle}
+                /> */}
+            </div>
+
            <img 
-                id="uprm-seal" 
                 alt=""
-                src={prefix+"media/img/uprmseal.png"}
-                className={uprmSealStyle} 
+                src={prefix+"media/img/logo-upr.png"}
+                className={"seals "+uprmSealStyle}
             />
             
             <div id="title-cont" className={menuPresentFadeOutClass}>
