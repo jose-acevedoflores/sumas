@@ -1,5 +1,5 @@
 import React from 'react';
-import delayedComp from '../DelayedComponent';
+import CommonMenuPage from './CommonMenuPage';
 
 function localeParser(projectJson){
     if(!projectJson){
@@ -21,30 +21,16 @@ function localeParser(projectJson){
 };
 
 function Project(props){
-    const {lng, prefix} = props;
-    let {className} = props;
-    const [pageInfo, loadPageInfo] = React.useState(null);
-
-    React.useEffect(()=>{
-        loadPageInfo(null);
-        fetch(prefix+"locales/"+lng+"/project.json").then(response => response.json())
-        .then(data => {
-            console.log(data);
-            loadPageInfo(data);
-        });
-
-    }, [loadPageInfo, lng, prefix]);
-
-    if(className==="op1" && pageInfo === null){
-        className = "op0";
-    }
-
+    const {lng, prefix, menuOpened} = props;
     return (
-        <div id="sumas-project" className={className +" menu-page"}>
-            <div className="over"></div>
-            {localeParser(pageInfo)}
-        </div>
+        <CommonMenuPage
+            lng={lng}
+            prefix={prefix}
+            localeId={"project.json"}
+            localeParser={localeParser}
+            menuOpened={menuOpened}
+        />
     );
 }
 
-export default delayedComp(Project);
+export default Project;

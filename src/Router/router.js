@@ -9,7 +9,7 @@ const menuRoutesEn = {
 
 const menuRoutesEs = {
     "": {txt: "Inicio"},
-    "project": {txt: "Poyecto SuMAS"},
+    "project": {txt: "Proyecto SuMAS"},
     "team": {txt: "Nuestro Equipo"},
     "opportunities": {txt: "Oportunidades"},
     "apply": {txt: "Solicita"},
