@@ -23,7 +23,7 @@ function Project(props){
     return (
         <div className={className +" menu-page"}>
             <div className="over"></div>
-            {props.localeParser(pageInfo)}
+            {props.localeParser(pageInfo, prefix)}
         </div>
     );
 }

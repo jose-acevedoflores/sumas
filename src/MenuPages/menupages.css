@@ -3,7 +3,7 @@
     color: darkslategray;
     display: flex;
     transition: opacity var(--title-delay);
-    overflow-y: hidden;
+    /* overflow-y: hidden; */
     overflow-x: scroll;
     height: 100%;
     flex-direction: row;
@@ -40,6 +40,15 @@
     flex-basis: 80%;
 }
 
+.pce-main-sml-font {
+    font-size: 1.2em;
+}
+
+.our-team-profile{
+    width: 150px;
+    height: 150px;
+}
+
 .pce-secondary {
     padding-right: 120px;
 }
@@ -47,12 +56,15 @@
 @media only screen and (max-width: 600px) {
     .page-contents{
         flex-direction: column;
-        padding-top: 40px;
+        padding-top: 100px;
     }
     .pc-entry{
-        flex-grow: unset;
         padding-left: 20px;
         padding-right: 20px;
+    }
+
+    .pce-main {
+        margin-bottom: -160px;
     }
 }
 
