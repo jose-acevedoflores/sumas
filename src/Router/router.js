@@ -51,3 +51,6 @@ export const isContactRoute = () => {
     return getCurLoc() === "contact";
 }
 
+export const isOpportunitiesRoute = () => {
+    return getCurLoc() === "opportunities";
+}
