@@ -6,7 +6,6 @@ class CirclePaginator extends React.Component {
     scrollCoordsToPageIndexRev = [];
 
     componentDidMount(){
-        //TODO consider using ref
         const tdiv = document.getElementById("menuPageTopDiv");
         tdiv.addEventListener("scroll", this.cb);
     }
@@ -32,7 +31,7 @@ class CirclePaginator extends React.Component {
         const entriesRev = [];
         for (let i = 0; i < numEntries; i++) {
             entries.push(pageWidth * i);
-            entriesRev.push((numEntries-i-1) * pageWidth)
+            entriesRev.push((numEntries - i - 1) * pageWidth)
         }
 
         this.scrollCoordsToPageIndex = entries;
