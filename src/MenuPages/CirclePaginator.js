@@ -1,8 +1,10 @@
 import React from 'react';
 
 class CirclePaginator extends React.Component {
-    state = { s:0 }
-    scrollCoordsToPageIndex = []
+    state = { pageNum:0 };
+    scrollCoordsToPageIndex = [];
+    scrollCoordsToPageIndexRev = [];
+
     componentDidMount(){
         //TODO consider using ref
         const tdiv = document.getElementById("menuPageTopDiv");
@@ -27,30 +29,21 @@ class CirclePaginator extends React.Component {
         const pageWidth = windowInnerWidth;
         const {numEntries} = this.props;
         const entries = [];
+        const entriesRev = [];
         for (let i = 0; i < numEntries; i++) {
             entries.push(pageWidth * i);
+            entriesRev.push((numEntries-i-1) * pageWidth)
         }
 
         this.scrollCoordsToPageIndex = entries;
+        this.scrollCoordsToPageIndexRev = entriesRev;
     }
 
     getIndexFromScrollCoords = (scrollLeft, direction) => {
-        let index = -1;
-        for(let i = 0; i < this.scrollCoordsToPageIndex.length - 1; i++){
-            const cur = this.scrollCoordsToPageIndex[i];
-            const next = this.scrollCoordsToPageIndex[i+1];
-
-            if(scrollLeft > cur && scrollLeft < next){
-                index = i;
-                break;
-            }
-        }
-
-        if(index === -1){
-            return this.state.s;
-        }
-
-        return direction === "left" ? index : index+1;
+        const {numEntries} = this.props;
+        return direction === "right"
+            ? numEntries - this.scrollCoordsToPageIndexRev.findIndex(cur => scrollLeft > cur)
+            : this.scrollCoordsToPageIndex.findIndex(cur => scrollLeft < cur) - 1
     }
 
     cb = event => {
@@ -61,8 +54,8 @@ class CirclePaginator extends React.Component {
 
         const res = this.getIndexFromScrollCoords(scrollLeft, direction);
 
-        if(this.state.s !== res){
-            this.setState({s: res});
+        if(this.state.pageNum !== res){
+            this.setState({pageNum: res});
         }
     };
 
@@ -72,8 +65,8 @@ class CirclePaginator extends React.Component {
         for (let i = 0; i < numEntries; i++) {
             entries.push(<li
                 key={i}
-                className={this.state.s === i ? "active" : ""}
-                onClick={()=>this.setState({s: this.state.s === i ? -1 : i})}><span></span></li>);
+                className={this.state.pageNum === i ? "active" : ""}
+                ><span></span></li>);
         }
         return entries;
     }
