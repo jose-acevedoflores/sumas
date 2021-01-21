@@ -6,6 +6,8 @@ import HamburgerIcon from './Hamburger';
 import OverlayedMenu from './OverlayedMenu';
 import PagesSwitch from './Router/PagesSwitch';
 import * as router from './Router/router';
+
+//TODO derive based on env
 const prefix = "/"
 // const prefix = "https://uprmsumas.z13.web.core.windows.net/"
 

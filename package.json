@@ -16,7 +16,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "deploy-all": "",
+    "install-azcopy": "scripts/install-azcopy.sh",
+    "deploy-all": "node scripts/deploy-all.js",
     "deploy-js": "",
     "deploy-locales": "",
     "deploy-img": ""

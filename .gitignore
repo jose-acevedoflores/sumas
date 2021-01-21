@@ -5,6 +5,8 @@
 /.pnp
 .pnp.js
 
+.azure_sas_token
+
 # testing
 /coverage
 

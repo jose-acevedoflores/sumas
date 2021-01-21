@@ -1,6 +1,15 @@
 # SuMAS
 
-SuMAS project landing page.
+SuMAS project landing page. To setup the project follow these steps:
+
+```shell
+ #from inside the `sumas` directory
+ $ npm run install-azcopy
+ $ npm run build
+ $ npm run deploy-all
+```
+
+After successful deployment, navigate to [SuMAS](https://uprm-sumas.azurewebsites.net/)
 
 ## Available Scripts
 
@@ -24,3 +33,22 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+### `npm run install-azcopy`
+
+Fetches the azcopy executable in order to run the `deploy-<somescript>` series of scripts
+
+### `npm run deploy-all`
+
+Deploys everything in the `build` folder to azure
+
+### `npm run deploy-js`
+
+Deploys everything in the `build/static` folder to azure
+
+### `npm run deploy-locales`
+
+Deploys everything in the `build/locales` folder to azure
+
+### `npm run deploy-img`
+
+Deploys everything in the `build/media/img` folder to azure
