@@ -20,7 +20,7 @@
     "deploy-all": "node scripts/deploy-all.js",
     "deploy-js": "node scripts/deploy-js.js",
     "deploy-locales": "node scripts/deploy-locales.js",
-    "deploy-img": "",
+    "deploy-img": "node scripts/deploy-img.js",
     "clear-bucket": "node scripts/clear-bucket.js"
   },
   "eslintConfig": {
