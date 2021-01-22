@@ -19,7 +19,7 @@
     "install-azcopy": "scripts/install-azcopy.sh",
     "deploy-all": "node scripts/deploy-all.js",
     "deploy-js": "",
-    "deploy-locales": "",
+    "deploy-locales": "node scripts/deploy-locales.js",
     "deploy-img": "",
     "clear-bucket": "node scripts/clear-bucket.js"
   },
