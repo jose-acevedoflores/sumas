@@ -7,9 +7,10 @@ import OverlayedMenu from './OverlayedMenu';
 import PagesSwitch from './Router/PagesSwitch';
 import * as router from './Router/router';
 
-//TODO derive based on env
-const prefix = "/"
-// const prefix = "https://uprmsumas.z13.web.core.windows.net/"
+//Take advantage of create-react-app access to env variables.
+const prefix = process.env.NODE_ENV==="development"
+    ? "/"
+    : "https://uprmsumas.z13.web.core.windows.net/"
 
 // const maxWidthPixels = 600; 
 
