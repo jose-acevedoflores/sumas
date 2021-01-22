@@ -52,3 +52,7 @@ Deploys everything in the `build/locales` folder to azure
 ### `npm run deploy-img`
 
 Deploys everything in the `build/media/img` folder to azure
+
+### `npm run clear-bucket`
+
+Removes all files from the blob in azure.
