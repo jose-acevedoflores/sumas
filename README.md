@@ -43,7 +43,7 @@ Deploys everything in the `build` folder to azure
 
 ### `npm run deploy-js`
 
-Deploys everything in the `build/static` folder to azure
+Deploys everything in the `build/static` folder plus the root files in `/build` (files at the top like index.html and asset-manifest.json) to azure
 
 ### `npm run deploy-locales`
 
